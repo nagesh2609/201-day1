@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="winner"></div>
+    <div id="member-1"></div>
+    <div id="member-2"></div>
+    <div id="member-3"></div>
+    <button id="roll">ROLL THE DICE</button>
+    
+</body>
+</html>
+<script>
+    var member1=document.querySelector("#member-1");
+    var member_2=document.querySelector("#member-2");
+    var member_3=document.querySelector("#member-3 ");
+    document.getElementById("roll").addEventListener("click" , myfunction)
+     
+     function myfunction(){
+         var val1 = getRamdomNumber1(1,6);
+         var val2 = getRamdomNumber2(1,6);
+         var val3 = getRamdomNumber3(1,6);
+         var big=val1;
+         if(big<val2){
+             big=val2;
+         }
+         if(big<val3){
+             big=val3
+         }
+         if(big==val1){
+            document.getElementById("winner").innerText="winner is"+" "+ "Member-1";
+            document.getElementById("member-1").style.color="green";
+            document.getElementById("member-2").style.color="black";
+            document.getElementById("member-3").style.color="black";
+
+         }
+         else if(big==val2){
+            document.getElementById("winner").innerText="winner is"+" "+ "Member-2";
+            document.getElementById("member-2").style.color="green";
+            document.getElementById("member-1").style.color="black";
+            document.getElementById("member-3").style.color="black";
+         }
+         else{
+            document.getElementById("winner").innerText="winner is"+" "+ "Member-3";
+            document.getElementById("member-3").style.color="green";
+            document.getElementById("member-1").style.color="black";
+            document.getElementById("member-2").style.color="black";
+
+         }
+         
+
+
+
+     }
+
+     function getRamdomNumber1(min, max){
+         var step1=max -min + 1;
+         var step2=Math.random() * step1;
+         var result=Math.floor(step2)
+         document.getElementById("member-1").innerText=result
+         return result;
+        
+     }
+     function getRamdomNumber2(min, max){
+         var step1=max -min + 1;
+         var step2=Math.random() * step1;
+         var result=Math.floor(step2)
+         document.getElementById("member-2").innerText=result;
+         return result;
+
+        
+     }
+     function getRamdomNumber3(min, max){
+         var step1=max -min + 1;
+         var step2=Math.random() * step1;
+         var result=Math.floor(step2)
+         document.getElementById("member-3").innerText=result;
+         return result;
+        
+     }
+</script>
